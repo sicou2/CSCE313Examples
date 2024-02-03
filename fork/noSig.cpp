@@ -9,21 +9,26 @@ int main()
 {
 	pid_t c_pid = fork();
 
-	if (c_pid == -1) {
+	if (c_pid == -1)
+	{
 		perror("fork");
 		exit(EXIT_FAILURE);
 	}
-	else if (c_pid > 0) {
-		//parent
-		
+	else if (c_pid > 0)
+	{
+		// parent
+
 		cout << "printed from parent process " << getpid()
-			<< endl;
-            wait(NULL);
+			 << endl;
+		wait(NULL);
 	}
-	else {
-		//child
+	else
+	{
+		// child
 		cout << "printed from child process " << getpid()
-			<< endl;
+			 << endl;
+		while (1)
+			;
 	}
 
 	return 0;

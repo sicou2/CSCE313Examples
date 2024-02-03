@@ -7,22 +7,25 @@ using namespace std;
 
 int main()
 {
-	pid_t c_pid = fork();
+	pid_t c_pid = fork(); // Fork creates new process
 
-	if (c_pid == -1) {
+	if (c_pid == -1)
+	{
 		perror("fork");
 		exit(EXIT_FAILURE);
 	}
-	else if (c_pid > 0) {
-		//parent
+	else if (c_pid > 0)
+	{
+		// parent
 		signal(SIGCHLD, SIG_IGN);
 		cout << "printed from parent process " << getpid()
-			<< endl;
+			 << endl;
 	}
-	else {
-		//child
+	else
+	{
+		// child
 		cout << "printed from child process " << getpid()
-			<< endl;
+			 << endl;
 	}
 
 	return 0;
